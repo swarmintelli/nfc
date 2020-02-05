@@ -40,7 +40,7 @@ pn532.SAM_configuration()
 # Step 1, wait for card to be present.
 print('PN532 NFC Module Writer')
 print('')
-print('== STEP 1 =========================')
+print('== STEP 1 ==')
 print('Place the card to be written on the PN532...')
 uid = pn532.read_passive_target()
 while uid is None:
@@ -49,12 +49,12 @@ print('')
 print('Found card with UID: 0x{0}'.format(binascii.hexlify(uid)))
 print('')
 print('==============================================================')
-print('WARNING: DO NOT REMOVE CARD FROM PN532 UNTIL FINISHED WRITING!')
+print('WARNING: DO NOT REMOVE PHONE FROM PN532 UNTIL FINISHED WRITING!')
 print('==============================================================')
 print('')
 
 # Step 2, pick a block type.
-print('== STEP 2 =========================')
+print('== STEP 2 ==')
 block_choice = None
 while block_choice is None:
     print('')
@@ -73,14 +73,14 @@ print('You chose the block type: {0}'.format(block_choice))
 print('')
 
 # Confirm writing the block type.
-print('== STEP 3 =========================')
+print('== STEP 3 ==')
 print('Confirm you are ready to write to the card:')
 print('User ID: {0}'.format(block_choice))
-choice = input('Confirm card write (Y or N)? ')
+choice = input('Confirm phone write (Y or N)? ')
 if choice.lower() != 'y' and choice.lower() != 'yes':
     print('Aborted!')
     sys.exit(0)
-print('Writing card (DO NOT REMOVE CARD FROM PN532)...')
+print('Writing to phone (DO NOT REMOVE CARD FROM PN532)...')
 
 # Write the card!
 # First authenticate block 4.
@@ -104,4 +104,4 @@ data[2:8] = value
 if not pn532.mifare_classic_write_block(4, data):
     print('Error! Failed to write to the card.')
     sys.exit(-1)
-print('Wrote card successfully! You may now remove the card from the PN532.')
+print('Wrote card successfully! You may now remove the phone from the PN532.')
