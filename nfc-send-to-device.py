@@ -65,7 +65,7 @@ while block_choice is None:
         print('Error! Unrecognized option.')
         continue
     # Decimal value not greater than hex number with 6 digits
-    if not (0 <= block_choice < 16777215):
+    if not (0 <= block_choice < 16777217):
         print('Error! User ID must be within 0 to 4294967295.')
         continue
     print('')
