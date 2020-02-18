@@ -1,5 +1,4 @@
 # Requires Adafruit_Python_PN532
-# visit https://www.anavi.org/article/210/ for more details
 import binascii
 import sys
 import struct
